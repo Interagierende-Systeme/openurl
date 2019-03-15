@@ -5,6 +5,7 @@ var commands = {
         return spawn('open', [url]);
     },
     'win32': function (url) {
+        url.href = url.href.replace(/&/g, '^&');
         return spawn('cmd', ['/c', 'start', url]);
     },
     'default': function (url) {
